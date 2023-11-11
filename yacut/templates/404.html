@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+{% block title %}Страница не найдена{% endblock title %}
+{% block content%}
+<main>
+    <section class="container my-5">
+      <div class="row">
+        <div class="text-center my-4">
+          <h1 class="mb-5">Страница не найдена</h1>
+          <p>Если тут что-то было, теперь этого тут нет.</p>
+          <p>
+            <a href="{{ url_for('index_view') }}">Вернуться на главную</a>
+          </p>
+        </div>
+      </div>
+    </section>
+  </main>
+{% endblock content %}
