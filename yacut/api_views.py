@@ -22,10 +22,11 @@ def add_urlmap():
     if 'url' not in data:
         raise InvalidAPIUsage('"url" является обязательным полем!', 400)
     if data.get('custom_id'):
-        if len(data['custom_id']) > 16 or not check_custom_id(data['custom_id']):
+        custom_id = data['custom_id']
+        if len(custom_id) > 16 or not check_custom_id(custom_id):
             raise InvalidAPIUsage(
                 'Указано недопустимое имя для короткой ссылки', 400)
-        if URLMap.query.filter_by(short=data['custom_id']).first() is not None:
+        if URLMap.query.filter_by(short=custom_id).first() is not None:
             raise InvalidAPIUsage(
                 'Предложенный вариант короткой ссылки уже существует.', 400)
     else:
